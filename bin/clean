@@ -1,0 +1,4 @@
+#!/usr/bin/env sh
+
+# Remove everything from tmp_projects except the .keep file
+find tmp_projects -mindepth 1 -maxdepth 1 ! -name '.keep' -exec rm -rf {} +

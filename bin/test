@@ -1,0 +1,11 @@
+#!/usr/bin/env sh
+
+# Find the highest numbered directory in tmp_projects, then increment it for the new project folder
+next_num=$(find tmp_projects -maxdepth 1 -type d -name 'project_*' | sed 's|.*/project_||' | sort -n | tail -1)
+if [ -z "$next_num" ]; then
+  next_num=1
+else
+  next_num=$((next_num + 1))
+fi
+
+rails new "tmp_projects/project_$next_num" --template='template.rb'
