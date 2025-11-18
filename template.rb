@@ -1,0 +1,5 @@
+gem 'faker'
+gem 'factory_bot_rails'
+gem 'pry-rails'
+gem 'rspec-rails'
+gem 'simplecov'
