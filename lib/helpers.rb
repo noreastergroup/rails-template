@@ -15,3 +15,7 @@ def print_step(step)
   puts mid_line
   puts border_line
 end
+
+def create_file_from_resource(target_path, resource_path)
+  create_file target_path, File.read(File.join(__dir__, '..', 'resources', resource_path))
+end
