@@ -8,4 +8,4 @@ else
   next_num=$((next_num + 1))
 fi
 
-rails new "tmp_projects/project_$next_num" --template='template.rb'
+rails new "tmp_projects/project_$next_num" --database=postgresql --css=tailwind --skip-docker --skip-kamal --skip-action-text --template='template.rb'
