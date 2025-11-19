@@ -19,3 +19,8 @@ end
 def create_file_from_resource(target_path, resource_path)
   create_file target_path, File.read(File.join(__dir__, '..', 'resources', resource_path))
 end
+
+def append_to_file_from_resource(target_path, resource_path)
+  content = File.read(File.join(__dir__, '..', 'resources', resource_path))
+  append_to_file target_path, "\n#{content}"
+end

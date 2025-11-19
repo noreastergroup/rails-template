@@ -32,8 +32,12 @@ print_step "Set Up Credentials"
 create_all_credentials
 ################################
 
-# ##### Set Up Database #####
-# print_step "Set Up Tailwind Components"
-# create_tailwind_components
-# ################################
+# ##### Set Up Tailwind #####
+print_step "Set Up Tailwind Components"
+create_tailwind_components
+################################
 
+##### Set Up Database #####
+print_step "Set Up Database"
+create_database_configuration
+################################

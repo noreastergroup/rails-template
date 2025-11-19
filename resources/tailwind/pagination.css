@@ -1,0 +1,39 @@
+.pagy {
+  @apply inline-flex items-stretch -space-x-px;
+
+  > *:first-child {
+    @apply rounded-l-lg;
+  }
+
+  > *:last-child {
+    @apply rounded-r-lg;
+  }
+}
+
+.pagy a:not(.gap) {
+  @apply flex items-center justify-center text-sm py-2.5 px-4 leading-tight text-gray-600 bg-white border border-gray-300 font-medium;
+
+  &:hover {
+    @apply bg-gray-50 text-gray-900 border-gray-400 z-10;
+  }
+
+  &:not([href]) {
+    @apply text-gray-400 bg-gray-50 cursor-default border-gray-200;
+  }
+
+  &.current {
+    @apply flex items-center justify-center text-sm z-10 py-2.5 px-4 leading-tight text-white bg-indigo-600 border border-indigo-600 font-semibold;
+  }
+
+  &:focus {
+    @apply outline-none ring-2 ring-indigo-500 ring-offset-2;
+  }
+
+  &:active {
+    @apply shadow-sm;
+  }
+}
+
+span.pagy.info {
+  @apply text-sm font-medium text-gray-600 bg-gray-50 px-3 py-2 rounded-lg border border-gray-200;
+}

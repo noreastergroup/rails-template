@@ -1,0 +1,5 @@
+@layer utilities {
+  .link {
+    @apply text-primary-600 hover:underline;
+  }
+}

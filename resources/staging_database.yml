@@ -1,0 +1,4 @@
+staging:
+  primary: &primary_staging
+    <<: *default
+    url: <%= ENV["DATABASE_URL"] %>

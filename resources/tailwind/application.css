@@ -1,0 +1,11 @@
+@import "tailwindcss";
+@plugin "@tailwindcss/forms";
+
+/* Project-specific styles */
+@import "./theme";
+@import "./variants";
+@import "./form";
+@import "./button";
+@import "./link";
+@import "./hr";
+@import "./pagination";

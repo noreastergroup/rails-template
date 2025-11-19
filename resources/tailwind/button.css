@@ -1,0 +1,39 @@
+@layer utilities {
+  .btn {
+    @apply inline-flex justify-center items-center rounded-md
+    px-3 py-1.5 text-sm font-semibold leading-6
+    shadow-xs cursor-pointer whitespace-nowrap
+    focus-visible:outline focus-visible:outline-2
+    focus-visible:outline-offset-2;
+  }
+
+  .btn-sm {
+    @apply inline-flex justify-center items-center rounded-md
+    px-2 py-0.5 text-xs font-semibold leading-6
+    shadow-xs cursor-pointer
+    focus-visible:outline focus-visible:outline-2
+    focus-visible:outline-offset-2;
+  }
+
+  .btn-lg {
+    @apply inline-flex justify-center items-center rounded-md
+    px-4 py-2 text-base font-semibold leading-6
+    shadow-xs cursor-pointer
+    focus-visible:outline focus-visible:outline-2
+    focus-visible:outline-offset-2;
+  }
+
+  .btn-primary {
+    @apply bg-primary-500 text-white hover:bg-primary-600 focus-visible:outline-primary-600;
+    &[disabled] {
+      @apply bg-primary-300 text-white hover:bg-primary-300 focus-visible:outline-primary-300;
+    }
+  }
+
+  .btn-secondary {
+    @apply bg-white text-secondary-900 shadow-xs border border-secondary-300 hover:bg-secondary-50 py-[5px] focus:ring-2 focus:ring-primary-600;
+    &[disabled] {
+      @apply bg-secondary-300 text-white hover:bg-secondary-300 focus-visible:outline-secondary-300;
+    }
+  }
+}

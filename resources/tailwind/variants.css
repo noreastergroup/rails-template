@@ -1,0 +1,8 @@
+/* Display modes for PWA & hotwire native: https://github.com/bhendi-boi/tailwindcss-displaymodes/blob/main/index.js */
+@variant browser (@media (display-mode: browser) and html:not([data-hotwire-native]) &);
+/* Standalone mode for PWA */
+@variant pwa (@media (display-mode: standalone));
+/* Native mode for hotwire native */
+@variant native (html[data-hotwire-native] &);
+/* App Like mode for PWA or hotwire native */
+@variant applike (@media (display-mode: standalone), html[data-hotwire-native] &);
