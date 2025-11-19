@@ -5,10 +5,10 @@ Dir.glob(File.expand_path('lib/**/*.rb', __dir__)).each { |file| require_relativ
 print_step "Gems installation"
 gemfile_strip
 
+install_active_record_pretty_key
 install_devise
 install_bootstrap_email
 install_rails_heroicon
-install_active_record_pretty_key
 install_postmark
 install_positioning
 install_pagy
