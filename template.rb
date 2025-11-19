@@ -41,3 +41,9 @@ create_tailwind_components
 print_step "Set Up Database"
 create_database_configuration
 ################################
+
+# TODO:
+# - multi tenant model setup
+# - cursor rules
+# - active storage R2 config & gems
+# 
