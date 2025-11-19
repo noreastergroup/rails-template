@@ -24,5 +24,5 @@ gemfile_respace
 
 ##### Set Up Credentials #####
 print_step "Set Up Credentials"
-create_credentials
+create_all_credentials
 ################################
