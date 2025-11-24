@@ -36,16 +36,12 @@ install_dev_annotaterb
 gemfile_respace
 ################################
 
-###### Set Up Current Model #####
-print_step "Set Up Current Model"
-create_current_model
-################################
-
 ##### Set Up Devise #####
 print_step "Set Up Devise"
 install_devise
 install_devise_views
-devise_redirect_after_sign_in
+before_action_redirect_after_sign_in
+before_action_current_model
 ################################
 
 # ##### Set Up Tailwind #####

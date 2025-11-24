@@ -11,6 +11,8 @@ def install_devise
 end
 
 def install_devise_views
+  return puts "Skipping Devise views installation" unless @devise_installed
+
   if yes_or_no("Do you want to install Devise views?")
     generate "devise:views"
     create_file_from_resource "app/views/devise/passwords/edit.html.erb", "devise/views/passwords/edit.html.erb", force: true
@@ -24,15 +26,16 @@ def install_devise_views
   end
 end
 
-def devise_redirect_after_sign_in
+def before_action_redirect_after_sign_in
+  return puts "Skipping Devise views installation" unless @devise_installed
+
   if yes_or_no("Do you want to redirect after sign in?")
-    before_action = <<~RUBY.indent(2)
-      def after_sign_in_path_for(resource)
-        before_action :store_location
-      end
+    before_action_redirect = <<~RUBY.indent(2)
+      before_action :store_location
     RUBY
 
-    before_action_method = <<~RUBY.indent(2)
+    before_action_method_redirect = <<~RUBY.indent(2)
+
       def store_location
         return if devise_controller?
 
@@ -44,7 +47,28 @@ def devise_redirect_after_sign_in
       end
     RUBY
 
-    insert_into_file 'app/controllers/application_controller.rb', before_action, before: "\n\n"
-    insert_into_file 'app/controllers/application_controller.rb', before_action_method, after: "\n\n"
+    insert_into_file 'app/controllers/application_controller.rb', before_action_redirect, after: "allow_browser versions: :modern\n"
+    insert_into_file 'app/controllers/application_controller.rb', before_action_method_redirect, after: "stale_when_importmap_changes\n"
   end
 end
+
+def before_action_current_model
+  return puts "Skipping Current model setup" unless @devise_installed
+
+  if yes_or_no("Do you want to set up the Current model with user?")
+    before_action_current = <<~RUBY.indent(2)
+      before_action :set_current_user
+    RUBY
+
+    before_action_method_current = <<~RUBY.indent(2)
+    
+      def set_current_user
+        Current.user = current_user
+      end
+    RUBY
+    insert_into_file 'app/controllers/application_controller.rb', before_action_current, after: "allow_browser versions: :modern\n"
+    insert_into_file 'app/controllers/application_controller.rb', before_action_method_current, after: "stale_when_importmap_changes\n"
+    create_file_from_resource('app/models/current.rb', 'current.rb')
+  end
+end
+
