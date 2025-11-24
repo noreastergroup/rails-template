@@ -78,5 +78,4 @@ gemfile_respace
 # - multi tenant model setup
 #   - invitations & devise controllers
 #   - model naming
-# - active storage R2 config & gems
-# - set up crednetial keys for postmark, r2, etc.
+# - set up credential keys for postmark, SEE active storage
