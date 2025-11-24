@@ -1,5 +1,10 @@
 def setup_active_storage_cloudflare_r2
   if yes_or_no("Do you want to use Cloudflare R2 for Active Storage?")
+    install_gem <<~RUBY
+      # S3 Compatible storage service interaction
+      gem "aws-sdk-s3", require: false
+    RUBY
+
     r2_configuration = <<~YAML
       \n# https://headey.net/moving-from-aws-s3-to-cloudflare-r2-for-active-storage
       cloudflare_r2:

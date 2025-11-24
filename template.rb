@@ -59,8 +59,8 @@ print_step "Set Up Database"
 create_database_configuration
 ################################
 
-##### Set Up Cloudflare R2 #####
-print_step "Set Up Cloudflare R2"
+##### Set Up Active Storage with Cloudflare R2 #####
+print_step "Set Up Active Storage with Cloudflare R2"
 setup_active_storage_cloudflare_r2
 ################################
 
