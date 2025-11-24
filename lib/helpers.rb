@@ -1,6 +1,6 @@
 def yes_or_no(question)
   if @yes_to_all_options
-    puts "#{question} => YES"
+    say("#{question} => (YES to all)", :blue, :bold)
     true
   else
     ask(question, %i[blue bold], default: 'Y', limited_to: %w[Y n]) == 'Y'
@@ -21,8 +21,8 @@ def print_step(step)
   puts border_line
 end
 
-def create_file_from_resource(target_path, resource_path)
-  create_file target_path, File.read(File.join(__dir__, '..', 'resources', resource_path))
+def create_file_from_resource(target_path, resource_path, force: false)
+  create_file target_path, File.read(File.join(__dir__, '..', 'resources', resource_path)), force: force
 end
 
 def append_to_file_from_resource(target_path, resource_path)

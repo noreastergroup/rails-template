@@ -1,7 +1,6 @@
 # Require all ruby files in the lib directory
 Dir.glob(File.expand_path('lib/**/*.rb', __dir__)).each { |file| require_relative file }
 
-
 ##### Yes to all options #####
 print_step "Starting Noreaster Group Rails Template"
 yes_to_all_options
@@ -22,7 +21,6 @@ print_step "Gems installation"
 gemfile_strip
 
 install_active_record_pretty_key
-install_devise
 install_bootstrap_email
 install_rails_heroicon
 install_postmark
@@ -36,6 +34,18 @@ install_dev_hotwire_spark
 install_dev_annotaterb
 
 gemfile_respace
+################################
+
+###### Set Up Current Model #####
+print_step "Set Up Current Model"
+create_current_model
+################################
+
+##### Set Up Devise #####
+print_step "Set Up Devise"
+install_devise
+install_devise_views
+devise_redirect_after_sign_in
 ################################
 
 # ##### Set Up Tailwind #####
@@ -54,12 +64,10 @@ create_cursor_rules
 ################################
 
 
+
 # TODO:
 # - multi tenant model setup
 #   - invitations & devise controllers
 #   - model naming
 # - active storage R2 config & gems
-# - devise store location redirect in app/controllers/application_controller.rb
-# - set up Current model with user
-# - botostrap email views
-# - devise styled views
+# - bootstrap email views

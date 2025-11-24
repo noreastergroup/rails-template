@@ -1,0 +1,31 @@
+<%= render "devise/shared/layout", title: "Sign in to your account" do %>
+  <%= render "devise/shared/invitation" %>
+  <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+    <%= render "devise/shared/error_messages", resource: resource %>
+    <div class="mb-4">
+      <%= f.label :email, class: "form-label" %>
+      <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-input" %>
+    </div>
+
+    <div class="mb-4">
+      <%= f.label :password, class: "form-label" %>
+      <%= f.password_field :password, autocomplete: "current-password", class: "form-input" %>
+    </div>
+
+    <% if devise_mapping.rememberable? %>
+      <% if hotwire_native_app? %>
+        <%# Always remember me on native apps %>
+        <%= f.hidden_field :remember_me, value: true %>
+      <% else %>
+        <div class="mb-4 flex items-center gap-2">
+          <%= f.check_box :remember_me, checked: true, class: "form-checkbox" %>
+          <%= f.label :remember_me %>
+        </div>
+      <% end %>
+    <% end %>
+
+    <%= f.submit "Log in", class: "btn btn-primary w-full" %>
+  <% end %>
+
+  <%= render "devise/shared/links" %>
+<% end %>

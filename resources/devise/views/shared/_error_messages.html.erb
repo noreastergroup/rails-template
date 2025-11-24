@@ -1,0 +1,62 @@
+<% if flash.any? %>
+  <% flash.each do |key, message| %>
+    <% if key.to_s == "notice" || key.to_s == "success" %>
+      <div class="mb-4 rounded-lg border border-green-300 bg-green-50 p-4">
+        <div class="flex">
+          <div class="flex-shrink-0">
+            <%= heroicon "check-circle", class: "size-5 text-green-400", variant: :solid %>
+          </div>
+          <div class="ml-3">
+            <p class="text-sm font-medium text-green-800"><%= message %></p>
+          </div>
+        </div>
+      </div>
+    <% elsif key.to_s == "alert" || key.to_s == "error" %>
+      <div class="mb-4 rounded-lg border border-red-300 bg-red-50 p-4">
+        <div class="flex">
+          <div class="flex-shrink-0">
+            <%= heroicon "exclamation-circle", class: "size-5 text-red-400", variant: :solid %>
+          </div>
+          <div class="ml-3">
+            <p class="text-sm font-medium text-red-800"><%= message %></p>
+          </div>
+        </div>
+      </div>
+    <% else %>
+      <div class="mb-4 rounded-lg border border-blue-300 bg-blue-50 p-4">
+        <div class="flex">
+          <div class="flex-shrink-0">
+            <%= heroicon "information-circle", class: "size-5 text-blue-400", variant: :solid %>
+          </div>
+          <div class="ml-3">
+            <p class="text-sm font-medium text-blue-800"><%= message %></p>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  <% end %>
+<% end %>
+
+<% if resource.errors.any? %>
+  <div id="error_explanation" data-turbo-cache="false" class="rounded-lg border border-red-300 bg-red-50 p-4 mb-4">
+    <div class="flex">
+      <div class="flex-shrink-0">
+        <%= heroicon "exclamation-circle", class: "size-5 text-red-400", variant: :solid %>
+      </div>
+      <div class="ml-3">
+        <h3 class="text-sm font-medium text-red-800">
+          <%= I18n.t("errors.messages.not_saved",
+                     count: resource.errors.count,
+                     resource: resource.class.model_name.human.downcase) %>
+        </h3>
+        <div class="mt-2 text-sm text-red-700">
+          <ul class="list-disc space-y-1 pl-5">
+            <% resource.errors.full_messages.each do |message| %>
+              <li><%= message %></li>
+            <% end %>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+<% end %>
