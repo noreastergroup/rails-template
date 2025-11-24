@@ -32,8 +32,6 @@ install_dev_erb_lint
 install_dev_letter_opener
 install_dev_hotwire_spark
 install_dev_annotaterb
-
-gemfile_respace
 ################################
 
 ##### Set Up Devise #####
@@ -42,6 +40,13 @@ install_devise
 install_devise_views
 before_action_redirect_after_sign_in
 before_action_current_model
+################################
+
+##### Set Up Bootstrap Email #####
+print_step "Set Up Bootstrap Email"
+install_bootstrap_email
+install_bootstrap_email_views
+create_mailer_subdirectory
 ################################
 
 # ##### Set Up Tailwind #####
@@ -59,11 +64,14 @@ print_step "Set Up Cursor Rules"
 create_cursor_rules
 ################################
 
-
+##### Set Up Cursor Rules #####
+print_step "Cleaning Up"
+gemfile_respace
+################################
 
 # TODO:
 # - multi tenant model setup
 #   - invitations & devise controllers
 #   - model naming
 # - active storage R2 config & gems
-# - bootstrap email views
+# - set up crednetial keys for postmark, r2, etc.
