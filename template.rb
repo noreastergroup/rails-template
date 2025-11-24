@@ -1,6 +1,12 @@
 # Require all ruby files in the lib directory
 Dir.glob(File.expand_path('lib/**/*.rb', __dir__)).each { |file| require_relative file }
 
+
+##### Yes to all options #####
+print_step "Starting Noreaster Group Rails Template"
+yes_to_all_options
+################################
+
 ##### Set Up Staging #####
 print_step "Set Up Staging"
 create_staging_configuration
@@ -42,14 +48,18 @@ print_step "Set Up Database"
 create_database_configuration
 ################################
 
+##### Set Up Cursor Rules #####
+print_step "Set Up Cursor Rules"
+create_cursor_rules
+################################
+
+
 # TODO:
 # - multi tenant model setup
 #   - invitations & devise controllers
 #   - model naming
-# - cursor rules
 # - active storage R2 config & gems
 # - devise store location redirect in app/controllers/application_controller.rb
 # - set up Current model with user
 # - botostrap email views
 # - devise styled views
-# - yes to all option

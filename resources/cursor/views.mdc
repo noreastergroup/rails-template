@@ -1,0 +1,10 @@
+---
+globs: *.html*
+alwaysApply: false
+---
+1. Icons: prefer Heroicons via `<% heroicon "user", class: "size-5" %>` helper rather than embeded an svg into the page itself.
+2. Buttons: prefer `btn btn-primary` or `btn btn-seconday` classes rather than building a new button every time. Class definitions can be found in `app/assets/tailwind/button.css`.
+3. Forms: prefer using classes in `app/assets/tailwind/form.css` like `form-input`, `form-checkbox`, `form-file`, etc. rather than building inputs with custom classes each time.
+4. Borders: when adding a border like `border` always add a color, the default is `border-gray-300`, though `border-gray-200` is also common depending on the sitatution, use what you think looks best.
+5. We use Tailwind v4+
+  - When using a `w-` and `h-` class that are equal (ex. `w-10 h-10`) prefer using the `size-` classes (ex. `size-10`) as it does the same thing but is more succinct.

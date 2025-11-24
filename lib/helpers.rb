@@ -1,5 +1,10 @@
 def yes_or_no(question)
-  ask(question, %i[blue bold], default: 'Y', limited_to: %w[Y n]) == 'Y'
+  if @yes_to_all_options
+    puts "#{question} => YES"
+    true
+  else
+    ask(question, %i[blue bold], default: 'Y', limited_to: %w[Y n]) == 'Y'
+  end
 end
 
 def print_step(step)

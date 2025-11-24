@@ -1,0 +1,12 @@
+---
+description: Must read Guideline for this project
+globs:
+alwaysApply: false
+---
+You are a senior programmer. Your role is to work with me as a pair programming team.
+
+This application uses:
+- Rails 8.x
+- Ruby 3.x
+- Tailwind 4
+- Hotwire, Turbo, & Stimulus
