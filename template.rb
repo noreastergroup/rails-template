@@ -59,6 +59,11 @@ print_step "Set Up Database"
 create_database_configuration
 ################################
 
+##### Set Up Cloudflare R2 #####
+print_step "Set Up Cloudflare R2"
+setup_active_storage_cloudflare_r2
+################################
+
 ##### Set Up Cursor Rules #####
 print_step "Set Up Cursor Rules"
 create_cursor_rules
