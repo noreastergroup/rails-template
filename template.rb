@@ -69,7 +69,7 @@ print_step "Set Up Cursor Rules"
 create_cursor_rules
 ################################
 
-##### Set Up Cleaning Up #####
+##### Cleaning Up #####
 print_step "Cleaning Up"
 gemfile_respace
 ################################
