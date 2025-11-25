@@ -49,7 +49,7 @@ install_bootstrap_email_views
 create_mailer_subdirectory
 ################################
 
-# ##### Set Up Tailwind #####
+##### Set Up Tailwind #####
 print_step "Set Up Tailwind Components"
 create_tailwind_components
 ################################
